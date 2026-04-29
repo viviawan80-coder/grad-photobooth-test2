@@ -91,8 +91,8 @@ border-radius:5px;
 <div id="photobooth">
 
 <div class="grid">
-<canvas id="photo1" width="330" height="185"></canvas>
-<canvas id="photo2" width="330" height="185"></canvas>
+<canvas id="photo1" width="660" height="370"></canvas>
+<canvas id="photo2" width="660" height="370"></canvas>
 </div>
 
 <img id="frameOverlay" src="photobooth frame small png font1.png">
@@ -116,7 +116,10 @@ const video = document.getElementById("video");
 async function startCamera(){
 try{
 const stream = await navigator.mediaDevices.getUserMedia({
-video:true,
+video: {
+    width: { ideal: 1280 },
+    height: { ideal: 720 }
+}
 audio:false
 });
 video.srcObject = stream;
@@ -195,11 +198,11 @@ finishBooth();
 function finishBooth(){
 
 const finalCanvas = document.createElement("canvas");
-finalCanvas.width = 1440;
-finalCanvas.height = 2080;
+finalCanvas.width = 720;
+finalCanvas.height = 1040;
 
 const ctx = finalCanvas.getContext("2d");
-ctx.scale(3, 3);
+ctx.scale(2, 2);
 
 /* background */
 ctx.fillStyle = "white";
@@ -209,8 +212,8 @@ const p1 = document.getElementById("photo1");
 const p2 = document.getElementById("photo2");
 
 /* draw photos */
-ctx.drawImage(p1,15,15,330,200);
-ctx.drawImage(p2,15,230,330,200);
+ctx.drawImage(p1,15,15,330,185);
+ctx.drawImage(p2,15,230,330,185);
 
 /* STORE INDIVIDUAL PHOTOS */
 try{
