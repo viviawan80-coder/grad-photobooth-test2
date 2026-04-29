@@ -91,8 +91,8 @@ border-radius:5px;
 <div id="photobooth">
 
 <div class="grid">
-<canvas id="photo1" width="660" height="370"></canvas>
-<canvas id="photo2" width="660" height="370"></canvas>
+<canvas id="photo1" width="640" height="360"></canvas>
+<canvas id="photo2" width="640" height="360"></canvas>
 </div>
 
 <img id="frameOverlay" src="photobooth frame small png font1.png">
@@ -214,8 +214,8 @@ const p1 = document.getElementById("photo1");
 const p2 = document.getElementById("photo2");
 
 /* draw photos */
-ctx.drawImage(p1,15,15,330,250);
-ctx.drawImage(p2,15,230,330,250);
+ctx.drawImage(p1,15,15,330,185);
+ctx.drawImage(p2,15,230,330,185);
 
 /* STORE INDIVIDUAL PHOTOS */
 try{
