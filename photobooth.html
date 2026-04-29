@@ -119,10 +119,12 @@ const stream = await navigator.mediaDevices.getUserMedia({
 video: {
     width: { ideal: 1280 },
     height: { ideal: 720 }
-}
+},
 audio:false
 });
 video.srcObject = stream;
+await video.play();
+
 }catch(err){
 alert("Camera permission needed.");
 }
